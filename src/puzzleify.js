@@ -202,6 +202,21 @@ export function initializePuzzles() {
     });
 }
 
+export function attachCheckButtonEvents() {
+    const checkButtons = document.querySelectorAll('button[data-puzzle-check]');
+    checkButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const puzzleImages = document.querySelectorAll('img[data-puzzle]');
+            puzzleImages.forEach(img => {
+                const puzzle = img.puzzleInstance;
+                if (puzzle) {
+                    puzzle.checkPuzzle();
+                }
+            });
+        });
+    });
+}
+
 export function attachShuffleButtonEvents() {
     const shuffleButtons = document.querySelectorAll('button[data-puzzle-shuffle]');
     shuffleButtons.forEach(btn => {
