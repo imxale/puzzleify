@@ -1,5 +1,5 @@
 # Puzzleify
-[NPM]()
+[NPM](https://www.npmjs.com/package/puzzleify)
 
 Puzzleify lets you create a puzzle of different sizes from an imported image.
 
