@@ -201,3 +201,18 @@ export function initializePuzzles() {
         new Puzzleify(img, pieces, pieces, mode);
     });
 }
+
+export function attachShuffleButtonEvents() {
+    const shuffleButtons = document.querySelectorAll('button[data-puzzle-shuffle]');
+    shuffleButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const puzzleImages = document.querySelectorAll('img[data-puzzle]');
+            puzzleImages.forEach(img => {
+                const puzzle = img.puzzleInstance;
+                if (puzzle) {
+                    puzzle.shuffleAndDraw();
+                }
+            });
+        });
+    });
+}
