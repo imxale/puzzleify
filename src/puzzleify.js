@@ -28,4 +28,70 @@ export class Puzzleify {
 
         this.imgElement.puzzleInstance = this;
     }
+
+    createPieces() {
+        for (let y = 0; y < this.piecesY; y++) {
+            for (let x = 0; x < this.piecesX; x++) {
+                let piece = {
+                    sx: x * (this.img.width / this.piecesX), 
+                    sy: y * (this.img.height / this.piecesY),
+                    sWidth: this.img.width / this.piecesX,
+                    sHeight: this.img.height / this.piecesY,
+                    dx: x * this.pieceWidth,
+                    dy: y * this.pieceHeight,
+                    dWidth: this.pieceWidth,
+                    dHeight: this.pieceHeight,
+                    offsetX: 0, 
+                    offsetY: 0,
+                    placed: false
+                };
+                this.pieces.push(piece);
+            }
+        }
+    }
+
+    shufflePieces() {
+        if (this.mode === 'chaos') {
+            this.pieces.forEach(piece => {
+                piece.offsetX = Math.random() * (this.canvas.width - this.pieceWidth);
+                piece.offsetY = Math.random() * (this.canvas.height - this.pieceHeight);
+            });
+        } else if (this.mode === 'default') {
+            let shuffledPieces = [...this.pieces].sort(() => 0.5 - Math.random());
+            shuffledPieces.forEach((piece, index) => {
+                piece.offsetX = this.pieces[index].dx;
+                piece.offsetY = this.pieces[index].dy;
+            });
+        }
+    }
+
+    checkPuzzle() {
+        const epsilon = 0.01;
+        this.pieces.forEach(piece => {
+            if (Math.abs(piece.offsetX - piece.dx) < epsilon && Math.abs(piece.offsetY - piece.dy) < epsilon) {
+                piece.incorrect = false;
+            } else {
+                piece.incorrect = true;
+            }
+        });
+        this.drawPuzzle();
+    }
+    
+    drawPuzzle() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.pieces.forEach(piece => {
+            this.ctx.drawImage(
+                this.img, 
+                piece.sx, piece.sy, piece.sWidth, piece.sHeight,
+                piece.offsetX, piece.offsetY, piece.dWidth, piece.dHeight
+            );
+            
+            if (piece.incorrect) {
+                this.ctx.fillStyle = 'rgba(255, 0, 0, 0.5)';
+                this.ctx.fillRect(piece.offsetX, piece.offsetY, piece.dWidth, piece.dHeight);
+            }
+            
+            this.ctx.strokeRect(piece.offsetX, piece.offsetY, piece.dWidth, piece.dHeight);
+        });
+    }
 }
