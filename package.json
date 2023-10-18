@@ -1,0 +1,34 @@
+{
+  "name": "puzzleify",
+  "version": "1.0.0",
+  "description": "Puzzleify lets you create a puzzle of different sizes from an imported image.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imxale/puzzleify.git"
+  },
+  "keywords": [
+    "puzzle",
+    "image",
+    "puzzleify",
+    "puzzleify.js",
+    "puzzleify-js",
+    "game",
+    "puzzle-game",
+    "mode-chaos",
+    "mode-classic",
+    "boardgame",
+    "chlallenge",
+    "canvas",
+    "swap-piece"
+  ],
+  "author": "Théo Landa, Yoann Chambeux, Axel Blanchard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imxale/puzzleify/issues"
+  },
+  "homepage": "https://github.com/imxale/puzzleify#readme"
+}
