@@ -191,3 +191,13 @@ export class Puzzleify {
         this.drawPuzzle();
     }
 }
+
+export function initializePuzzles() {
+    const puzzleImages = document.querySelectorAll('img[data-puzzle]');
+
+    puzzleImages.forEach(img => {
+        const pieces = parseInt(img.getAttribute('data-puzzle'), 10);
+        const mode = img.getAttribute('data-mode-puzzle') || 'default';
+        new Puzzleify(img, pieces, pieces, mode);
+    });
+}
