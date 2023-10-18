@@ -157,4 +157,37 @@ export class Puzzleify {
             this.drawPuzzle();
         }
     }
+
+    animatePiece(piece, targetX, targetY) {
+        piece.animating = true;
+        piece.animProgress = 0;
+        piece.targetX = targetX;
+        piece.targetY = targetY;
+    
+        const animate = () => {
+            piece.animProgress += 0.01;
+            if (piece.animProgress >= 1) {
+                piece.animProgress = 1;
+                piece.animating = false;
+            }
+            piece.offsetX += (piece.targetX - piece.offsetX) * piece.animProgress;
+            piece.offsetY += (piece.targetY - piece.offsetY) * piece.animProgress;
+            this.drawPuzzle();
+            if (piece.animating) {
+                requestAnimationFrame(animate);
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+
+    resetIncorrectPieces() {
+        this.pieces.forEach(piece => {
+            piece.incorrect = false;
+        });
+    }
+
+    shuffleAndDraw() {
+        this.shufflePieces();
+        this.drawPuzzle();
+    }
 }
