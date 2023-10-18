@@ -94,4 +94,67 @@ export class Puzzleify {
             this.ctx.strokeRect(piece.offsetX, piece.offsetY, piece.dWidth, piece.dHeight);
         });
     }
+
+    addEventListeners() {
+        this.canvas.addEventListener('mousedown', (e) => {
+            this.resetIncorrectPieces();
+
+            let x = e.offsetX;
+            let y = e.offsetY;
+            
+            for (let i = this.pieces.length - 1; i >= 0; i--) {
+                let piece = this.pieces[i];
+                if (x > piece.offsetX && x < piece.offsetX + piece.dWidth && 
+                    y > piece.offsetY && y < piece.offsetY + piece.dHeight && 
+                    !piece.placed) {
+                    this.draggingPiece = piece;
+                    this.canvas.addEventListener('mousemove', this.handleMouseMove);
+                    break;
+                }
+            }
+        });
+    
+        this.canvas.addEventListener('mouseup', (e) => {
+            if (this.mode === 'default' && this.draggingPiece) {
+                let x = e.offsetX;
+                let y = e.offsetY;
+                let targetPiece = this.pieces.find(piece => 
+                    x > piece.offsetX && x < piece.offsetX + piece.dWidth && 
+                    y > piece.offsetY && y < piece.offsetY + piece.dHeight
+                );
+        
+                if (targetPiece && targetPiece !== this.draggingPiece) {
+                    let tempX = this.draggingPiece.offsetX;
+                    let tempY = this.draggingPiece.offsetY;
+        
+                    this.animatePiece(this.draggingPiece, targetPiece.offsetX, targetPiece.offsetY);
+                    this.animatePiece(targetPiece, tempX, tempY);
+                }
+            }
+        
+            this.draggingPiece = null;
+            this.canvas.removeEventListener('mousemove', this.handleMouseMove);
+            this.drawPuzzle();
+        });
+    }
+
+    handleMouseMove = (e) => {
+        if (this.draggingPiece) {
+            if (this.mode === 'chaos') {
+                this.draggingPiece.offsetX = e.offsetX - this.pieceWidth / 2;
+                this.draggingPiece.offsetY = e.offsetY - this.pieceHeight / 2;
+                
+                if (Math.abs(this.draggingPiece.offsetX - this.draggingPiece.dx) < 15 && 
+                    Math.abs(this.draggingPiece.offsetY - this.draggingPiece.dy) < 15) {
+                    this.draggingPiece.offsetX = this.draggingPiece.dx;
+                    this.draggingPiece.offsetY = this.draggingPiece.dy;
+                    this.draggingPiece.placed = true;
+                    this.draggingPiece = null;
+                    this.canvas.removeEventListener('mousemove', this.handleMouseMove);
+                }
+            }
+    
+            this.drawPuzzle();
+        }
+    }
 }
