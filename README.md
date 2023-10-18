@@ -29,4 +29,3 @@ Install puzzleify with npm
 - [Yoann](https://github.com/Yoann-CH)
 - [Théo](https://github.com/slorochi)
 - [Axel](https://www.github.com/imxale)
-
