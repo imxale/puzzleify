@@ -1,8 +1,8 @@
 {
   "name": "puzzleify",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Puzzleify lets you create a puzzle of different sizes from an imported image.",
-  "main": "index.js",
+  "main": "src/puzzleify.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
