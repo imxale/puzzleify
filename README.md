@@ -1,3 +1,5 @@
+<img src="./assets/img/logo.png" width="200">
+
 # Puzzleify
 [NPM](https://www.npmjs.com/package/puzzleify)
 
