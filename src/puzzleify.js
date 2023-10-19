@@ -2,6 +2,8 @@ export class Puzzleify {
     constructor(imgElement, piecesX, piecesY, mode = 'default') {
         this.imgElement = imgElement;
         this.canvas = document.createElement('canvas');
+        this.canvas.setAttribute('data-puzzle-canvas', 'true');
+        this.canvas.puzzleInstance = this;
         this.canvas.width = imgElement.width;
         this.canvas.height = imgElement.height;
         imgElement.parentNode.replaceChild(this.canvas, imgElement);
@@ -26,7 +28,6 @@ export class Puzzleify {
             this.addEventListeners();
         };
 
-        this.imgElement.puzzleInstance = this;
     }
 
     createPieces() {
@@ -206,9 +207,9 @@ export function attachCheckButtonEvents() {
     const checkButtons = document.querySelectorAll('button[data-puzzle-check]');
     checkButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const puzzleImages = document.querySelectorAll('img[data-puzzle]');
-            puzzleImages.forEach(img => {
-                const puzzle = img.puzzleInstance;
+            const puzzleCanvases = document.querySelectorAll('canvas[data-puzzle-canvas="true"]');
+            puzzleCanvases.forEach(canvas => {
+                const puzzle = canvas.puzzleInstance;
                 if (puzzle) {
                     puzzle.checkPuzzle();
                 }
@@ -221,9 +222,9 @@ export function attachShuffleButtonEvents() {
     const shuffleButtons = document.querySelectorAll('button[data-puzzle-shuffle]');
     shuffleButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const puzzleImages = document.querySelectorAll('img[data-puzzle]');
-            puzzleImages.forEach(img => {
-                const puzzle = img.puzzleInstance;
+            const puzzleCanvases = document.querySelectorAll('canvas[data-puzzle-canvas="true"]');
+            puzzleCanvases.forEach(canvas => {
+                const puzzle = canvas.puzzleInstance;
                 if (puzzle) {
                     puzzle.shuffleAndDraw();
                 }
