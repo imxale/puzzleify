@@ -1,9 +1,9 @@
 <img src="./assets/img/logo.png" width="200">
 
-# Puzzleify
-[NPM](https://www.npmjs.com/package/puzzleify)
+# Puzzlefy
+[NPM](https://www.npmjs.com/package/puzzlefy)
 
-Puzzleify lets you create a puzzle of different sizes from an imported image.
+Puzzlefy lets you create a puzzle of different sizes from an imported image.
 
 ### Two game modes are available :
 - The classic : allows you to swap pieces between them.
@@ -14,10 +14,10 @@ Puzzleify lets you create a puzzle of different sizes from an imported image.
 
 ## Installation
 
-Install puzzleify with npm
+Install puzzlefy with npm
 
 ```bash
-npm install puzzleify
+npm install puzzlefy
 ```
 ## Get started
 
@@ -49,7 +49,7 @@ In a img balise use attribute **data-puzzle** for configure the difficulty.
 ```js
 import React, { useEffect, useRef } from 'react';
 import logo from './logo.png';
-import { initializePuzzles, attachCheckButtonEvents, attachShuffleButtonEvents  } from "puzzleify";
+import { initializePuzzles, attachCheckButtonEvents, attachShuffleButtonEvents  } from "puzzlefy";
 import './App.css';
 
 function App() {
@@ -89,7 +89,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img ref={imageRef} src={logo} className="puzzle-image" alt="Puzzleify example" data-puzzle="2" height="400" width="400" />
+        <img ref={imageRef} src={logo} className="puzzle-image" alt="Puzzlefy example" data-puzzle="2" height="400" width="400" />
 
         <select onChange={handleDifficultyChange}>
           <option value="2">Facile (2x2)</option>

@@ -1,4 +1,4 @@
-export class Puzzleify {
+export class Puzzlefy {
     constructor(imgElement, piecesX, piecesY, mode = 'default') {
         this.imgElement = imgElement;
         this.canvas = document.createElement('canvas');
@@ -199,7 +199,7 @@ export function initializePuzzles() {
     puzzleImages.forEach(img => {
         const pieces = parseInt(img.getAttribute('data-puzzle'), 10);
         const mode = img.getAttribute('data-mode-puzzle') || 'default';
-        new Puzzleify(img, pieces, pieces, mode);
+        new Puzzlefy(img, pieces, pieces, mode);
     });
 }
 
