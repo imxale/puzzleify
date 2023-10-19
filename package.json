@@ -1,21 +1,21 @@
 {
-  "name": "puzzlefy",
+  "name": "puzzleify",
   "version": "1.1.4",
-  "description": "Puzzlefy lets you create a puzzle of different sizes from an image.",
-  "main": "src/puzzlefy.js",
+  "description": "Puzzleify lets you create a puzzle of different sizes from an image.",
+  "main": "src/puzzleify.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imxale/puzzlefy.git"
+    "url": "git+https://github.com/imxale/puzzleify.git"
   },
   "keywords": [
     "puzzle",
     "image",
-    "puzzlefy",
-    "puzzlefy.js",
-    "puzzlefy-js",
+    "puzzleify",
+    "puzzleify.js",
+    "puzzleify-js",
     "game",
     "puzzle-game",
     "mode-chaos",
@@ -28,7 +28,7 @@
   "author": "Théo Landa, Yoann Chambeux, Axel Blanchard",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/imxale/puzzlefy/issues"
+    "url": "https://github.com/imxale/puzzleify/issues"
   },
-  "homepage": "https://github.com/imxale/puzzlefy#readme"
+  "homepage": "https://github.com/imxale/puzzleify#readme"
 }
