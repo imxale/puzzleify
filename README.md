@@ -3,7 +3,7 @@
 
 Puzzleify lets you create a puzzle of different sizes from an imported image.
 
-### Two game modes are available
+### Two game modes are available :
 - The classic : allows you to swap pieces between them.
 - The chaos : the pieces are placed at random on the board.
   **Warning: in chaos mode, the pieces can be superimposed on each other, this is chaos !**
@@ -88,11 +88,12 @@ export default App;
 ```
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
+![classic](assets/img/classic.png)
+![verify](assets/img/verify.png)
+![chaos](assets/img/chaos.png)
 
 ## Authors
 
-- [Yoann](https://github.com/Yoann-CH)
-- [Théo](https://github.com/slorochi)
-- [Axel](https://www.github.com/imxale)
+- [Yoann Chambeux](https://github.com/Yoann-CH)
+- [Théo Landa](https://github.com/slorochi)
+- [Axel Blanchard](https://www.github.com/imxale)
