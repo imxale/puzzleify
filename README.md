@@ -17,10 +17,34 @@ Puzzleify lets you create a puzzle of different sizes from an imported image.
 Install puzzleify with npm
 
 ```bash
-  npm install puzzleify
+npm install puzzleify
+```
+## Get started
+
+### Functions to use :
+```
+initializePuzzles()
+attachCheckButtonEvents()
+attachShuffleButtonEvents()
+```
+### To check if puzzle is solved   
+To check the puzzle use **data-puzzle-check** in a button for example :
+```js
+<button data-puzzle-check>Check the puzzle</button>
 ```
 
-## Exemple how to use with React
+### To shuffle the puzzle   
+To suffle the puzzle use the attribute **data-puzzle-shuffle** in a button for example :
+```js
+<button data-puzzle-shuffle>Suffle the puzzle</button>
+```
+### Difficulty
+In a img balise use attribute **data-puzzle** for configure the difficulty.
+```js
+<img data-puzzle="[int]"/>
+```
+
+## Example how to use with React
 
 ```js
 import React, { useEffect, useRef } from 'react';
